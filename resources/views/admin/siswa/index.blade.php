@@ -260,7 +260,13 @@
                       <td>{{$siswa->nis}}</td>
                       <td>{{$siswa->nisn}}</td>
                       <td>{{$siswa->nama_lengkap}}</td>
-                      <td>{{$siswa->tanggal_lahir->format('d-M-Y')}}</td>
+                      <td>
+                        @if($siswa->tanggal_lahir)
+                            {{ \Carbon\Carbon::parse($siswa->tanggal_lahir)->format('d-M-Y') }}
+                        @else
+                            {{ 'Tanggal Lahir Tidak Tersedia' }}  <!-- Or another default message -->
+                        @endif
+                      </td>
                       <td>{{$siswa->jenis_kelamin}}</td>
                       <td>
                         @if($siswa->kelas_id == null)
@@ -404,7 +410,7 @@
                                 </div>
                                 <label for="tanggal_lahir" class="col-sm-2 col-form-label">Tanggal Lahir</label>
                                 <div class="col-sm-4">
-                                  <input type="date" class="form-control" id="tanggal_lahir" name="tanggal_lahir" value="{{$siswa->tanggal_lahir->format('Y-m-d')}}">
+                                  <input type="date" class="form-control" id="tanggal_lahir" name="tanggal_lahir" value="{{ \Carbon\Carbon::parse($siswa->tanggal_lahir)->format('Y-M-d') }}">
                                 </div>
                               </div>
                               <div class="form-group row">

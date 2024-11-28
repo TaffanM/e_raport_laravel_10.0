@@ -150,7 +150,7 @@
                               <div class="form-group row">
                                 <label for="tanggal_pembagian" class="col-sm-3 col-form-label">Tanggal Pembagian</label>
                                 <div class="col-sm-9">
-                                  <input type="date" class="form-control" id="tanggal_pembagian" name="tanggal_pembagian" value="{{$tgl_raport->tanggal_pembagian->format('Y-m-d')}}">
+                                  <input type="date" class="form-control" id="tanggal_pembagian" name="tanggal_pembagian" value="{{ \Carbon\Carbon::parse($tgl_raport->tanggal_pembagian)->format('Y-M-d') }}">
                                 </div>
                               </div>
                             </div>
